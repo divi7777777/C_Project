@@ -1,0 +1,131 @@
+{
+	"git_repo": {
+		"URL": "http://bitbucket.test.devsecops.cf.unisys-waf.com/scm/dev/c-helloworld.git",
+		"Cred": "bitbuckett",
+		"Branch": "master"
+	},
+	
+	"projectDetails" : {
+		"name": "c-helloworld",
+		"version": "1.0",
+		"language": "C",
+		"reportsPath": "buildReports",
+		
+		"supportedLauguages": [ "java", "python", "dotnet", "C", "cpp" ]
+	},
+	"jira": {
+		"site": "jira",
+		"projectKey": "DEVSECOPS",
+		"issueType": "10004",
+		"autoRaiseIssue": "true",
+		"autoResolveIssue": "false",
+		"autoUnlinkIssue": "false"
+	},
+	"build": {
+		"buildTool": "cmake",
+		"antBuildFile": "build.xml",
+		"antCompileTarget": "compile",
+		"antUnitTestTarget": "unitTest",
+		
+		"dotNetAppType": "DotNetCore",
+		"dotNetSolutionPath": "SurfReport.csproj",
+		
+		"cmakeInstallation": "InSearchPath",
+		"cmakeBuildDir": "build",
+		"cmakeBuildType": "Release",
+		"cmakeGenerator": "Unix Makefiles"		
+	},
+	"unitTestCases": {
+		"skipUnitTestCases": "true",
+		"skipPublishingChecks": "true",
+		"jUnitTestResultsPath": "target/surefire-reports/",
+		"passPercentage": "50",
+		"pythonUnittestFW": "pytest",
+		"pythonUnitTestFileLocation": "src/manage.py"		
+	},
+	"sonar": {
+		"skipSonarAnalysis": "false",
+		"projectAuthToken": "sonarqube",
+		"projectKey": "c-helloworld",
+		"sleepTime": "1"
+	},
+	"zephyr": {
+		"skipZephyrReports": "false",
+		"serverAddress": "http://54.245.135.126",
+		"projectKey": "3",
+		"releaseKey": "1",
+		"parserTemplateKey": "1",
+		"cycleDuration": "30 days",
+		"cycleKey": "2",
+		"cyclePrefix": "",
+		"createPackage": "true"
+	},
+	"docker": {
+		"skipImagePush": "false",
+		"dockerFileLocation": "Dockerfile",
+		"imageName": "c-helloworld",
+		"tagName": "1.0"
+	},
+	"helm": {
+		"skipHelmPush": "false",
+		"chartLocation": "helm"
+	},
+	"accurics": {
+		"skipAccuricsReport": "false",
+		"configFilesLocation": "accuricsConfigFiles",
+		"helmLocation": "helm",
+		"terrafomLocation": "terraform"
+	},
+	"harbor": {
+		"URL": "https://harbor.test.devsecops.cf.unisys-waf.com",
+		"tagURL": "harbor.test.devsecops.cf.unisys-waf.com",
+		"credID": "harbor",
+		"repoName": "dev"
+	},
+	"trivy": {
+		"skipTrivyScan": "true",
+		"trivyCleanImgPath": "/home/ubuntu/trivy.tar",
+        "trivyCleanImgName": "aquatrivy/clean",
+		"trivyCleanImgVersion": "01",
+		"severity": "HIGH,CRITICAL"
+	},
+	"codeMerge": {
+		"skipCodeMerge": "false",
+		"mergeToBranch": "release"
+	},
+	"emailIDs": {
+		"skipEmailNotification": "false",
+		"toList": "kadiyamsrisai@gmail.com",
+		"ccList": "kadiyamsrisai@gmail.com"
+	},
+	"functionalTest": {
+		"skipFunctionalTests": "false",
+		"functionalTestPath": "functionalTest",
+		"passPercentage": "0"
+	},
+	"performanceTest": {
+		"skipPerformanceTest": "false",
+		"jmeter_Home": "/home/ubuntu/apache-jmeter-5.4.1",
+		"testScriptsPath" : "appTestScripts",
+		"jmxFile": "Test.jmx",
+		"jtlFile": "report.jtl"
+	},
+	"burpScan": {
+		"skipBurpScan": "false",
+		"burpURL": "http://54.245.135.126:8888/",
+		"burpAppURL" : "https://jenkins.test.devsecops.cf.unisys-waf.com/"
+	},
+	"netsparkerScan": {
+		"skiNetsparkerScan": "true",
+		"ncScanType": "Incremental",
+		"ncWebsiteId" : "98cd6ced-b809-4397-6c56-ad9c0170f9ca",
+		"ncProfileId": "ab0f3851-ba55-4b66-30ca-ad9c0178022a",
+		"ncStopScan": "true",
+		"ncSeverity": "DoNotFail",
+		"ncDoNotFail": true,
+		"ncConfirmed": false,
+		"ncIgnoreFalsePositive": false,
+		"ncIgnoreRiskAccepted": false
+	}
+	
+}
